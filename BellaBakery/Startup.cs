@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using BellaBakery.Models;
 
 namespace BellaBakery
 {
@@ -11,10 +12,12 @@ namespace BellaBakery
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            // customer
+            services.AddScoped<IPieRepo, MockPieRepo>();
+            services.AddScoped<ICategoryRepo, MockCategoryRepo>();
+
             // framework
             services.AddControllersWithViews();
-
-            // customer
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

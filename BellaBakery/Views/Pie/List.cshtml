@@ -1,0 +1,21 @@
+﻿@model BellaBakery.Models.ViewModels.PieListViewModel
+
+<html>
+<head>
+    <meta chartset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bella's Bakery</title>
+</head>
+<body>
+    <h1>@Model.CurrentCategory</h1>
+    @foreach (var pie in Model.Pies)
+    {
+        <div>
+            <h3>@pie.Name</h3>
+            <h4>@pie.Price.ToString("c")</h4>
+            <h5>@pie.Category.CategoryName</h5>
+        </div>
+    }
+</body>
+</html>
